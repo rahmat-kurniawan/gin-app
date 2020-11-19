@@ -3,7 +3,7 @@ package Models
 import (
 	"fmt"
 
-	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/GoogleCloudPlatform/cloudsql-proxy/proxy/dialers/postgres"
 	"github.com/rahmat-kurniawan/gin-app/Config"
 )
 

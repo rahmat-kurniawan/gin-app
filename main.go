@@ -13,13 +13,13 @@ var err error
 
 func main() {
 
-	Config.DB, err = gorm.Open("mysql", "root:@tcp(127.0.0.1:3306)/mux_app?charset=utf8&parseTime=True&loc=Local")
+	Config.DB, err = gorm.Open("postgres", "user=admin password=Admin@123 dbname=go_app port=5432 sslmode=disable TimeZone=Asia/Jakarta")
 
 	if err != nil {
 		fmt.Println("statuse: ", err)
 	}
 	defer Config.DB.Close()
-	Config.DB.AutoMigrate(&Models.Book{})
+	Config.DB.AutoMigrate(&Models.Book{}, &Models.Song{})
 
 	r := Routers.SetupRouter()
 	r.Run()

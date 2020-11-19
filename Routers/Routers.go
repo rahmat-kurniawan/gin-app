@@ -1,8 +1,8 @@
 package Routers
 
 import (
-	"github.com/rahmat-kurniawan/gin-app/Controllers"
 	"github.com/gin-gonic/gin"
+	"github.com/rahmat-kurniawan/gin-app/Controllers"
 )
 
 func SetupRouter() *gin.Engine {
@@ -10,6 +10,8 @@ func SetupRouter() *gin.Engine {
 
 	v1 := r.Group("/v1")
 	{
+		v1.GET("song", Controllers.ListSong)
+
 		v1.GET("book", Controllers.ListBook)
 		v1.POST("book", Controllers.AddNewBook)
 		v1.GET("book/:id", Controllers.GetOneBook)
